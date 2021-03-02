@@ -25,8 +25,7 @@ class TestArticleclassify():
         点击详情安妮'''
         driver = login
         edit = ArticlclassifyPage(driver)
-        # 点击左侧客户管理导航
-        edit.click_classify_nav()
+
         # 点击详情按钮
         edit.edit_classify()
         # 判断是否跳转详情页面成功，返回布尔值

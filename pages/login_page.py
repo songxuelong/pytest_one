@@ -3,23 +3,21 @@ from common.config import host
 import allure
 import time
 
-login_url = host+"/xadmin/"
+login_url = host
 class LoginPage(Base):
-    loc_1 = ("xpath", '//*[@id="app"]/div/section/div/div/div[2]/div/form/div[2]/div/div/input')            # 用户名
-    loc_2 = ("xpath", '//*[@id="app"]/div/section/div/div/div[2]/div/form/div[4]/div/div/input')            # 密码
-    loc_3 = ("xpath", '//*[@id="app"]/div/section/div/div/div[2]/div/form/div[5]/div/button')   # 登录按钮
+    loc_1 = ("xpath", '//*[@id="kw"]')            # 输入框
+    loc_3 = ("xpath", '//*[@id="su"]')   # 登录按钮
 
     # 判断元素
-    loc_4 = ("xpath", '//*[@id="app"]/div/section/section/footer')
+    loc_4 = ("xpath", '//*[@id="content_left"]/div[1]/div/span/i')
 
 
     @allure.step("步骤：1.登陆web    2.输入正确的账号和密码")
-    def login(self, username="songxuelong", password="Aq1w2e3r4"):
+    def login(self, username="songxuelong"):
         '''登录'''
 
         self.driver.get(login_url)
         self.send(self.loc_1, username)
-        self.send(self.loc_2, password)
         self.click(self.loc_3)
 
     @allure.step("步骤：判断登录是否成功")
